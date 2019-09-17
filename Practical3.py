@@ -7,7 +7,7 @@ Created on Mon Sep 16 15:11:11 2019
 """
 
 """ 
-Practical 2 Assignment: Code shrinking 1
+Practical 3 Assignment: Code shrinking 2
 
 This code uses the array function to create x and y coordinates for both agents
 the code then increments each of the integers within the array as the code from 
