@@ -69,7 +69,7 @@ print ("coordiates 1 after move: Random y1 = ", agents[1][0],
 """ Working with functions"""
 print ("largest x value:", max(agents, key=operator.itemgetter(1)))
 
-""" Graphical representation of plots"""
+""" Graphical representation of plots, this colours the agent with max value red."""
 matplotlib.pyplot.ylim(0,100)
 matplotlib.pyplot.xlim(0,100)
 matplotlib.pyplot.scatter(agents[0][1], agents[0][0])

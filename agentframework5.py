@@ -4,6 +4,7 @@
 Created on Tue Sep 17 15:40:22 2019
 
 @author: laurapemberton
+This is an agent class file. 
 """
 
 import random

@@ -6,14 +6,15 @@ Created on Tue Sep 17 15:29:39 2019
 @author: laurapemberton
 
 
-Practical 6: I/O
+Practical 7: Communicating
 
-The program imports data from a file to use in the agents environment. 
+
 """
 import csv
 import operator
 import matplotlib.pyplot
-import agentframework6
+import agentframework7
+import random
 
 """ method to work out the distance between two given agents. """
 def distance_between(agents_row_a, agents_row_b):
@@ -40,17 +41,29 @@ for line in f: #for every line in the file
 f.close() 
 
 num_of_agents = 10
-num_of_iterations = 100
+num_of_iterations = 10
 agents = [] # declare agent as a list
+neighbourhood = 20
+
 
 # Make the agents.
 for i in range(num_of_agents):
-    agents.append(agentframework6.Agent(environment))
+    agents.append(agentframework7.Agent(environment, agents))
+
+"""CODE TO PROVE IMPACT OF SHUFFLE
+print('before')
+for agent in agents:
+    print(agent.x)
+random.shuffle(agents)
+print('after')
+for agent in agents:
+    print(agent.x)
+"""
 
 # Move the agents.
 for j in range(num_of_iterations):
+    random.shuffle(agents)
     for i in range(num_of_agents):
-
         agents[i].move()
         #print(agents[i].x)
 
@@ -60,6 +73,7 @@ for j in range(num_of_iterations):
     for i in range(num_of_agents):
         agents[i].move()
         agents[i].eat()
+        agents[i].share_with_neighbours(neighbourhood)
         
 matplotlib.pyplot.xlim(0, 99)
 matplotlib.pyplot.ylim(0, 99)
