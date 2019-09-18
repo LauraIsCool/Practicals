@@ -13,12 +13,7 @@ This code uses the array function to create x and y coordinates for both agents
 the code then increments each of the integers within the array as the code from 
 practical 1 did. 
 
-Calculate distance between both agents 
-import math
-distance = math.sqrt((agents[1][1] - agents[0][1])**2 
-                     + (agents[1][0] - agents[0][0])**2)
-print ("distance between coordinates:", round(distance))
- 
+
 """
 
 import random #import random module
@@ -26,15 +21,20 @@ import array
 import operator
 import matplotlib.pyplot
 
-num_of_agents = 10 #controls the num of agents in array
-num_of_iterations = 100 
 
+num_of_agents = 10 #controls the num of agents in array
+num_of_iterations = 100 #the number of times the coordinates need to be moved
+
+#created list called agents
 agents = []
 
 random_numberY_Axis = random.random() 
 random_numberX_Axis = random.random() 
 
-
+""" for loop that goes through each agent to append the agents with random 
+digits. for example if the num_of_agents = 10 the loop will run 10 times and 
+create 10 agents each with random numbers. 
+"""
 for i in range(num_of_agents): #i is num of times loop is run.
     agents.append([random.randint(0,99), random.randint(0,99)])
 
