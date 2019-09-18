@@ -6,10 +6,9 @@ Created on Tue Sep 17 15:29:39 2019
 @author: laurapemberton
 
 
-Practical 4: Agents
+Practical 6: I/O
 """
-
-
+import csv
 import operator
 import matplotlib.pyplot
 import agentframework5
@@ -32,7 +31,7 @@ for j in range(num_of_iterations):
 
         agents[i].move()
         #print(agents[i].x)
-
+        
 matplotlib.pyplot.xlim(0, 99)
 matplotlib.pyplot.ylim(0, 99)
 for i in range(num_of_agents):
@@ -42,3 +41,29 @@ matplotlib.pyplot.show()
 for agents_row_a in agents:
     for agents_row_b in agents:
         distance = distance_between(agents_row_a, agents_row_b)
+        #print(distance)
+
+"""section of code copied from lecture notes that imports the data from the 
+in.txt file and prints it into the console"""
+
+
+
+f = open("in.txt")
+data = []
+for line in f:
+    parsed_line = str.split(line, ",")
+    data_line = []
+    for word in parsed_line:
+        data_line.append(float(word))
+        rowlist=[]
+        environment = []
+            rowlist.append(data_line)
+            environment.append(rowlist)
+    data.append(data_line)
+#print(data)
+f.close()
+
+""" section of code to disply the data that has been read in"""
+
+matplotlib.pyplot.imshow(environment)
+matplotlib.pyplot.show()
