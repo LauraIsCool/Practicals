@@ -35,7 +35,7 @@ class Agent():
         if self.environment[self.x][self.y] > 10:
             self.environment[self.y][self.x] -=10
             self.store += 10
-    
+
     def share_with_neighbours(self, neighbourhood):
         for agent in self.agents:
             dist = self.distance_between(agent)
