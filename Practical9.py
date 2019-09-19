@@ -6,16 +6,18 @@ Created on Tue Sep 17 15:29:39 2019
 @author: laurapemberton
 
 
-Practical 8: Animation
+Practical 9: GUI
 
 
 """
 import matplotlib
+import tkinter
 matplotlib.use('TkAgg')
 import matplotlib.pyplot
 import agentframework9
 import random
 import matplotlib.animation
+
 
 
 # =============================================================================
@@ -102,11 +104,18 @@ def gen_function(b = [0]):
     while (a<num_of_iterations) & (carry_on):
         yield a
         a = a + 1
+        
+def run():
+    animation = matplotlib.animation.FuncAnimation(fig, update, 
+                                                   frames=gen_function, 
+                                                   repeat= False, interval=1)
+    #canvas.show()
+    canvas.draw()
+    
 
-animation = matplotlib.animation.FuncAnimation(fig, update, 
-                                               frames=gen_function, 
-                                               repeat= False, interval=1)
-matplotlib.pyplot.show()
+tkinter.mainloop()
+                                                
+
 
         
         

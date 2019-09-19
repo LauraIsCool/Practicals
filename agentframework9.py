@@ -5,7 +5,7 @@ Created on Tue Sep 17 15:40:22 2019
 
 @author: laurapemberton
 
-Practical 8: Agent class 
+Practical 9: Agent class 
 """
 
 import random
