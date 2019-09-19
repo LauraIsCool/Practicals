@@ -10,10 +10,10 @@ Practical 8: Animation
 
 
 """
-import csv
-import operator
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot
-import agentframework8
+import agentframework9
 import random
 import matplotlib.animation
 
@@ -60,7 +60,7 @@ ax = fig.add_axes([0, 0, 1, 1])
 # Make the agents.
 # =============================================================================
 for i in range(num_of_agents):
-    agents.append(agentframework8.Agent(environment, agents))
+    agents.append(agentframework9.Agent(environment, agents))
     
 carry_on = True
 
