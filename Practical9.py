@@ -8,17 +8,20 @@ Created on Tue Sep 17 15:29:39 2019
 
 Practical 9: GUI
 
+HOW TO: UNIT TESTING
+
+
 
 """
 import matplotlib
-import tkinter
 matplotlib.use('TkAgg')
+import tkinter
 import matplotlib.pyplot
 import agentframework9
 import random
 import matplotlib.animation
-
-
+import matplotlib.backends
+#import matplotlib.backends.backend_TkAgg
 
 # =============================================================================
 # calculate distance between agents
@@ -58,15 +61,25 @@ ax = fig.add_axes([0, 0, 1, 1])
 
 #ax.set_autoscale_on(False)
 
+def run():
+    animation = matplotlib.animation.FuncAnimation(fig, update, 
+                                                   frames=gen_function, 
+                                                   repeat= False) 
+    #canvas.show()
+    canvas.draw()
+
+
+
 # =============================================================================
 # Make the agents.
 # =============================================================================
 for i in range(num_of_agents):
-    agents.append(agentframework9.Agent(environment, agents))
+    agents.append(agentframework9.Agent(environment, agents)) 
     
 carry_on = True
 
 def update(frame_number):
+    
     fig.clear()
     global carry_on     
         
@@ -97,7 +110,9 @@ def update(frame_number):
     for i in range(num_of_agents):
         matplotlib.pyplot.scatter(agents[i].x,agents[i].y, c='white')
         #print("agent ", agents[i], "coordinates: ", agents[i].x, agents[i].y)
-        
+
+      
+     
 def gen_function(b = [0]):
     a = 0
     global carry_on
@@ -105,14 +120,19 @@ def gen_function(b = [0]):
         yield a
         a = a + 1
         
-def run():
-    animation = matplotlib.animation.FuncAnimation(fig, update, 
-                                                   frames=gen_function, 
-                                                   repeat= False, interval=1)
-    #canvas.show()
-    canvas.draw()
-    
+root = tkinter.Tk()
+root.wm_title("Model")
+canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(fig, master=root)
+canvas._tkcanvas.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1) 
 
+#Code to make menu
+menu_bar = tkinter.Menu(root)
+root.config(menu=menu_bar)
+model_menu = tkinter.Menu(menu_bar)
+menu_bar.add_cascade(label='Model', menu=model_menu)
+model_menu.add_command(label="Run model", command = run)
+
+      
 tkinter.mainloop()
                                                 
 
