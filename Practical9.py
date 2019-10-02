@@ -60,6 +60,7 @@ ax = fig.add_axes([0, 0, 1, 1])
 
 # =============================================================================
 # Make the agents.
+# Range function used to cycle through the number of agents. 
 # =============================================================================
 for i in range(num_of_agents):
     agents.append(agentframework9.Agent(environment, agents))
@@ -108,9 +109,11 @@ def gen_function(b = [0]):
 def run():
     animation = matplotlib.animation.FuncAnimation(fig, update, 
                                                    frames=gen_function, 
-                                                   repeat= False, interval=1)
+def pause():
+    programPause = input()                                                   repeat= False, interval=1)
     #canvas.show()
     canvas.draw()
+    
     
 
 tkinter.mainloop()

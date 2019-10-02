@@ -6,6 +6,20 @@ Created on Tue Sep 17 15:40:22 2019
 @author: laurapemberton
 
 Practical 9: Agent class 
+
+This class is representative of the agent. The module creates the agent and 
+then values are assigned to the agent within this class. 
+All agents are created with a random x and y variable. 
+
+A function (move) is created to move the agents twice for both the x and y value 
+randomly. 
+
+A function (eat) is used 
+
+A function (share with neighbours)
+
+A function (distance_between) returns the value of the distance between two 
+given agents. 
 """
 
 import random

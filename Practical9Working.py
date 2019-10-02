@@ -25,7 +25,7 @@ import agentframework9
 import random
 import matplotlib.animation
 import matplotlib.backends
-#import matplotlib.backends.backend_TkAgg
+
 
 # =============================================================================
 # calculate distance between agents
@@ -69,10 +69,13 @@ def run():
     animation = matplotlib.animation.FuncAnimation(fig, update, 
                                                    frames=gen_function, 
                                                    repeat= False) 
+# =============================================================================
+# def pause():
+#     programPause = input()
+# =============================================================================
+    
     #canvas.show()
     canvas.draw()
-
-
 
 # =============================================================================
 # Make the agents.
@@ -115,8 +118,7 @@ def update(frame_number):
         matplotlib.pyplot.scatter(agents[i].x,agents[i].y, c='white')
         #print("agent ", agents[i], "coordinates: ", agents[i].x, agents[i].y)
 
-      
-     
+          
 def gen_function(b = [0]):
     a = 0
     global carry_on
@@ -135,6 +137,7 @@ root.config(menu=menu_bar)
 model_menu = tkinter.Menu(menu_bar)
 menu_bar.add_cascade(label='Model', menu=model_menu)
 model_menu.add_command(label="Run model", command = run)
+#model_menu.add_command(label="Pause model", command = pause)
 
       
 tkinter.mainloop()
