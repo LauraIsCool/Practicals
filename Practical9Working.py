@@ -28,13 +28,6 @@ import matplotlib.backends
 
 
 # =============================================================================
-# calculate distance between agents
-# =============================================================================
-def distance_between(agents_row_a, agents_row_b):
-    return (((agents_row_a.x - agents_row_b.x)**2) +
-    ((agents_row_a.y - agents_row_b.y)**2))**0.5
-
-# =============================================================================
 # #read text file and create environment          
 # =============================================================================
 f = open("in.txt")

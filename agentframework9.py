@@ -20,6 +20,9 @@ A function (share with neighbours)
 
 A function (distance_between) returns the value of the distance between two 
 given agents. 
+
+    def distance_between(self, agent):
+        return(((self.x - agent.x)**2) + ((self.y - agent.y)**2))**0.5
 """
 
 import random
@@ -63,7 +66,6 @@ class Agent():
                 #print("sharing " + str(dist) + " " + str(ave))
         #print(neighbourhood)
         
-    def distance_between(self, agent):
-        return(((self.x - agent.x)**2) + ((self.y - agent.y)**2))**0.5
-        
-            
+    def distance_between(agents_row_a, agents_row_b):
+        return (((agents_row_a.x - agents_row_b.x)**2) +
+        ((agents_row_a.y - agents_row_b.y)**2))**0.5            
