@@ -62,6 +62,7 @@ num_of_iterations = 50
 agents = [] # create list 
 neighbourhood = 20
 
+
 # =============================================================================
 # create figure animation
 # =============================================================================
@@ -91,11 +92,9 @@ for i in range(num_of_agents):
     x = int(td_xs[i].text)
     agents.append(agentframework9edited.Agent(environment, agents, y, x)) 
 
-    
 carry_on = True
 
 def update(frame_number):
-    
     fig.clear()
     global carry_on     
         
@@ -109,13 +108,14 @@ def update(frame_number):
             #print(agents[i].x)
                                  
     # =========================================================================
-    # Call eat method   
+    # Call methods that do stuff to agents.    
     # =========================================================================
     for j in range(num_of_iterations):
         for i in range(num_of_agents):
             agents[i].move()
             agents[i].eat()
             agents[i].share_with_neighbours(neighbourhood)
+            agents[i].sheep_in_hole(agent)
 
     # =========================================================================
     # #Create animated graphic
@@ -126,8 +126,9 @@ def update(frame_number):
     for i in range(num_of_agents):
         matplotlib.pyplot.scatter(agents[i].x,agents[i].y, c='white')
         #print("agent ", agents[i], "coordinates: ", agents[i].x, agents[i].y)
+        #print statement shows coordinates for generated agents. 
 
-          
+#supplied generator function to frame number.           
 def gen_function(b = [0]):
     a = 0
     global carry_on
