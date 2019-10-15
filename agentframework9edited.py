@@ -20,9 +20,8 @@ A function (share with neighbours)
 
 A function (distance_between) returns the value of the distance between two 
 given agents. 
-
-    def distance_between(self, agent):
-        return(((self.x - agent.x)**2) + ((self.y - agent.y)**2))**0.5
+    
+    
 """
 
 import random
@@ -30,9 +29,9 @@ import random
 class Agent():
 
     
-    def __init__(self, environment, list_agents):
-        self.x = random.randint(0,300)
-        self.y = random.randint(0,300)
+    def __init__(self, environment, list_agents, y, x, sheep_in_hole):
+        self.x = x
+        self.y = y
         self.environment = environment
         self.store = 0
         self.agents = list_agents
@@ -47,7 +46,9 @@ class Agent():
         if random.random() < 0.5:
             self.y = (self.y + 1) % 300
         else:
-            self.y = (self.y - 1) % 300   
+            self.y = (self.y - 1) % 300
+            
+           
     
     def eat(self):
         if self.environment[self.y][self.x] > 10:
@@ -65,7 +66,18 @@ class Agent():
             
                 #print("sharing " + str(dist) + " " + str(ave))
         #print(neighbourhood)
+        #print statement to test that share with neighbour function works. 
+    
+    def distance_between(self, agent):
+        return(((self.x - agent.x)**2) + ((self.y - agent.y)**2))**0.5
         
-    def distance_between(agents_row_a, agents_row_b):
-        return (((agents_row_a.x - agents_row_b.x)**2) +
-        ((agents_row_a.y - agents_row_b.y)**2))**0.5            
+    def fall_in_hole(self, agents):
+        sheep_in_hole = []
+        if self.x > 145 and self.x < 156 and self.y > 145 and self.y < 156:
+             sheep_in_hole.append(self.x, self.y)
+             agents.remove(sheep_in_hole)
+        return agents
+
+        
+    
+        
