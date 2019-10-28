@@ -40,6 +40,7 @@ environment = []
 
 # =============================================================================
 # Code here used to scrape data off the internet 
+# BeautifulSoup is used to extract the data from HTML. 
 # =============================================================================
 
 r = requests.get('http://www.geog.leeds.ac.uk/courses/computing/practicals/python/agent-framework/part9/data.html')
@@ -47,11 +48,17 @@ content = r.text
 soup = bs4.BeautifulSoup(content, 'html.parser')
 td_ys = soup.find_all(attrs={"class" : "y"})
 td_xs = soup.find_all(attrs={"class" : "x"})
-print(td_ys)
-print(td_xs)
+#print(td_ys)
+#print(td_xs)
+# print statement used to confirm that variables have been read in correctly. 
 
 # =============================================================================
-# #read text file and create environment          
+# #read text file and create environment    
+# for each line int the parsed file create a split for each new line and each 
+# comma.
+# create a new list known as data_line and for each line append the float to a 
+# word.
+# use this to create the environment.       
 # =============================================================================
 f = open("in.txt")
 for line in f:  
@@ -97,15 +104,6 @@ def update(frame_number):
     fig.clear()
     global carry_on     
         
-    # =========================================================================
-    # Move the agents.
-    # =========================================================================
-    for j in range(num_of_iterations):
-        random.shuffle(agents)
-        for i in range(num_of_agents):
-            agents[i].move()
-            #print(agents[i].x) 
-            #Print statement used as test case to confirm agents have moved. 
                                  
     # =========================================================================
     # Call methods that do stuff to agents.    
@@ -119,6 +117,8 @@ def update(frame_number):
             #agents[i].sheep_in_hole()
 
             #agents[i].sheep_in_hole(agent)
+            #print(agents[i].x) 
+            #Print statement used as test case to confirm agents have moved. 
 
     # =========================================================================
     # #Create animated graphic
@@ -139,14 +139,19 @@ def gen_function(b = [0]):
         yield a
         a = a + 1
         
+# =============================================================================
+# #Code to make menu aspect of GUI
+# tkinter functionality is used to create the menu. 
+# Given title called model
+# new command is added that starts the model running, called run model
+# =============================================================================
+        
 root = tkinter.Tk()
 root.wm_title("Model")
 canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(fig, master=root)
 canvas._tkcanvas.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1) 
 
-# =============================================================================
-# #Code to make menu
-# =============================================================================
+
 menu_bar = tkinter.Menu(root)
 root.config(menu=menu_bar)
 model_menu = tkinter.Menu(menu_bar)
