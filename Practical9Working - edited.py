@@ -117,7 +117,8 @@ def update(frame_number):
             agents[i].share_with_neighbours(neighbourhood)
             agents[i].throwup()
             #agents[i].sheep_in_hole()
-        
+
+            #agents[i].sheep_in_hole(agent)
 
     # =========================================================================
     # #Create animated graphic

@@ -28,7 +28,6 @@ import random
 
 class Agent():
 
-    
     def __init__(self, environment, list_agents, y, x): #sheep_in_hole
         self.x = x
         self.y = y
@@ -70,7 +69,6 @@ class Agent():
     
     def distance_between(self, agent):
         return(((self.x - agent.x)**2) + ((self.y - agent.y)**2))**0.5
- 
 
     #  When an agent has a store greater than 100, the agent throws up their  
     # store in current location
@@ -84,6 +82,10 @@ class Agent():
 # Code written in attempt to get agents to "fall" in a hole thats in the middle
 # of the grid. However could not get this to work. Could not work out how to 
 # take sheep in hole list from agents list within main program document. 
+
+        
+# =============================================================================
+
 #     def fall_in_hole(self, agents):
 #         sheep_in_hole = []
 #         if self.x > 145 and self.x < 156 and self.y > 145 and self.y < 156:
