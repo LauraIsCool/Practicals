@@ -1,7 +1,7 @@
 # Practicals ReadMe
 
 # Overview
-Completed practical 1
+Completed passignment 1 for module GEOG5995
 
 
 # Contents
