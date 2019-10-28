@@ -1,12 +1,13 @@
 # Practicals ReadMe
 
 # Overview
-Completed passignment 1 for module GEOG5995
+Completed assignment 1 repository for module GEOG5995
 
 
 # Contents
 This repository contains a file for each version of the agent based model that was created, following the structure provided in the GEOG5995 course structure. 
 Available at: https://www.geog.leeds.ac.uk/courses/computing/study/core-python-phd/
+
 in.txt - is the data used for the model. 
 practical# - is the file related to each practical number of the model.
 agentframework# - the updated agent class file. 
