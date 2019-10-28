@@ -9,9 +9,12 @@ This repository contains a file for each version of the agent based model that w
 Available at: https://www.geog.leeds.ac.uk/courses/computing/study/core-python-phd/
 
 in.txt - is the data used for the model. 
+
 practical# - is the file related to each practical number of the model.
+
 agentframework# - the updated agent class file. 
 
+FINAL ASSIGNMENT
 practical9Working - final & agentframework9final - are the final versions of the model. 
 
 
