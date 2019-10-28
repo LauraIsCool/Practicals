@@ -8,12 +8,7 @@ Created on Tue Sep 17 15:29:39 2019
 
 Practical 9: GUI
 
-HOW TO: UNIT TESTING
-
-Need to add unit testing to this file to prove stuff works. 
-
-Also add comments to explain how program works. 
-
+Sections of code taken from: https://www.geog.leeds.ac.uk/courses/computing/study/core-python-phd/
 
 
 """
@@ -29,6 +24,20 @@ import matplotlib.backends
 import requests
 import bs4
 
+
+# =============================================================================
+# declare all variables
+# =============================================================================
+num_of_agents = 100
+num_of_iterations = 50
+neighbourhood = 20
+
+# =============================================================================
+# Create lists for environment and agents.
+# =============================================================================
+agents = []  
+environment = []
+
 # =============================================================================
 # Code here used to scrape data off the internet 
 # =============================================================================
@@ -40,27 +49,20 @@ td_ys = soup.find_all(attrs={"class" : "y"})
 td_xs = soup.find_all(attrs={"class" : "x"})
 print(td_ys)
 print(td_xs)
+
 # =============================================================================
 # #read text file and create environment          
 # =============================================================================
 f = open("in.txt")
-environment = []  
 for line in f:  
     parsed_line = str.split(line, ",") 
     data_line = [] 
     for word in parsed_line: 
         data_line.append(float(word))      
     environment.append(data_line)
-#print(data)
+#print(data) 
+#Test print statement. 
 f.close() 
-
-# =============================================================================
-# variables
-# =============================================================================
-num_of_agents = 100
-num_of_iterations = 50
-agents = [] # create list 
-neighbourhood = 20
 
 
 # =============================================================================
@@ -76,10 +78,7 @@ def run():
     animation = matplotlib.animation.FuncAnimation(fig, update, 
                                                    frames=gen_function, 
                                                    repeat= False) 
-# =============================================================================
-# def pause():
-#     programPause = input()
-# =============================================================================
+
     
     #canvas.show()
     canvas.draw()
@@ -105,7 +104,8 @@ def update(frame_number):
         random.shuffle(agents)
         for i in range(num_of_agents):
             agents[i].move()
-            #print(agents[i].x)
+            #print(agents[i].x) 
+            #Print statement used as test case to confirm agents have moved. 
                                  
     # =========================================================================
     # Call methods that do stuff to agents.    
@@ -115,7 +115,9 @@ def update(frame_number):
             agents[i].move()
             agents[i].eat()
             agents[i].share_with_neighbours(neighbourhood)
-            agents[i].sheep_in_hole(agent)
+            agents[i].throwup()
+            #agents[i].sheep_in_hole()
+        
 
     # =========================================================================
     # #Create animated graphic
@@ -149,12 +151,31 @@ root.config(menu=menu_bar)
 model_menu = tkinter.Menu(menu_bar)
 menu_bar.add_cascade(label='Model', menu=model_menu)
 model_menu.add_command(label="Run model", command = run)
-#model_menu.add_command(label="Pause model", command = pause)
 
-      
+
 tkinter.mainloop()
-                                                
 
 
+
+""" END OF PROGRAM. """
+"""
+
+aTTEMPT TO WRITE FUNCTION THAT WOULD ENABLE THE PROGRAM TO BE PAUSED BY THE USER. 
+could not find a function within python library i could understand to implement
+this. 
+def pause():
+    programPause = input()
+
+
+attempt to write code that could pause the program. Could not find function
+in library that would do this
+model_menu.add_command(label="Pause model", command = pause)   
+
+import time 
+start = time.process_time()
+end = time.process_time()
+print ("time completed in: "+ str(round(end-start, 3)))                                       
+
+"""
         
         

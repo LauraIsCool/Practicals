@@ -29,7 +29,7 @@ import random
 class Agent():
 
     
-    def __init__(self, environment, list_agents, y, x, sheep_in_hole):
+    def __init__(self, environment, list_agents, y, x): #sheep_in_hole
         self.x = x
         self.y = y
         self.environment = environment
@@ -60,9 +60,9 @@ class Agent():
             dist = self.distance_between(agent)
             if dist <= neighbourhood:
                 sum = self.store + agent.store
-                ave = sum/2
-                self.store = ave
-                agent.store = ave
+                average = sum/2
+                self.store = average
+                agent.store = average
             
                 #print("sharing " + str(dist) + " " + str(ave))
         #print(neighbourhood)
@@ -70,13 +70,27 @@ class Agent():
     
     def distance_between(self, agent):
         return(((self.x - agent.x)**2) + ((self.y - agent.y)**2))**0.5
-        
-    def fall_in_hole(self, agents):
-        sheep_in_hole = []
-        if self.x > 145 and self.x < 156 and self.y > 145 and self.y < 156:
-             sheep_in_hole.append(self.x, self.y)
-             agents.remove(sheep_in_hole)
-        return agents
+ 
+
+    #  When an agent has a store greater than 100, the agent throws up their  
+    # store in current location
+    def throwup(self):
+        if self.store >= 100:            
+            self.environment[self.y][self.x] +=100
+            self.store = self.store-100  
+            
+""" END OF CLASS """            
+# =============================================================================
+# Code written in attempt to get agents to "fall" in a hole thats in the middle
+# of the grid. However could not get this to work. Could not work out how to 
+# take sheep in hole list from agents list within main program document. 
+#     def fall_in_hole(self, agents):
+#         sheep_in_hole = []
+#         if self.x > 145 and self.x < 156 and self.y > 145 and self.y < 156:
+#              sheep_in_hole.append(self.x, self.y)
+#              agents.remove(sheep_in_hole)
+#         return agents
+# =============================================================================
 
         
     
